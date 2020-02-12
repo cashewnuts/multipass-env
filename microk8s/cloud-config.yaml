@@ -13,14 +13,17 @@ users:
 # with the format [<package>, <version>] wherein the specifc
 # package version will be installed.
 packages:
- - python
- - zsh
- - git
- - ssh
- - neovim
+  - python
+  - zsh
+  - git
+  - ssh
+  - neovim
 
 runcmd:
- - [ sh, -c, "chsh ubuntu -s /bin/zsh" ]
- - [ sh, -c, "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ]
- - [ sh, -c, "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k" ]
-
+  - chsh ubuntu -s /bin/zsh
+  - sh -c "sudo snap install microk8s --classic" - ubuntu
+  - usermod -a -G microk8s ubuntu
+  - sh -c "curl -o /home/ubuntu/.zshrc https://raw.githubusercontent.com/cashewnuts/multipass-env/master/microk8s/zshrc"
+  - curl -fsL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=/home/ubuntu/.oh-my-zsh sh /dev/stdin
+  - sh -c "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /home/ubuntu/.oh-my-zsh/custom/themes/powerlevel10k"
+  - chown ubuntu:ubuntu -R /home/ubuntu

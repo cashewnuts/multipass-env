@@ -32,3 +32,5 @@ fi
 
 export PATH=$PATH:/snap/bin
 
+alias kubectl=microk8s.kubectl
+alias k=kubectl
