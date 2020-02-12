@@ -1,0 +1,26 @@
+#cloud-config
+
+users:
+  - default
+
+# Install additional packages on first boot
+#
+# Default: none
+#
+# if packages are specified, this apt_update will be set to true
+#
+# packages may be supplied as a single package name or as a list
+# with the format [<package>, <version>] wherein the specifc
+# package version will be installed.
+packages:
+ - python
+ - zsh
+ - git
+ - ssh
+ - neovim
+
+runcmd:
+ - [ sh, -c, "chsh ubuntu -s /bin/zsh" ]
+ - [ sh, -c, "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ]
+ - [ sh, -c, "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k" ]
+
