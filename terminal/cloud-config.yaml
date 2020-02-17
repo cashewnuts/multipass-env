@@ -1,0 +1,29 @@
+#cloud-config
+
+users:
+  - default
+
+# Install additional packages on first boot
+#
+# Default: none
+#
+# if packages are specified, this apt_update will be set to true
+#
+# packages may be supplied as a single package name or as a list
+# with the format [<package>, <version>] wherein the specifc
+# package version will be installed.
+packages:
+  - python
+  - zsh
+  - git
+  - tmux
+  - ssh
+  - neovim
+
+runcmd:
+  - chsh ubuntu -s /bin/zsh
+  - sh -c "curl -o /home/ubuntu/.zshrc https://raw.githubusercontent.com/cashewnuts/multipass-env/master/terminal/zshrc"
+  - sh -c "curl -o /home/ubuntu/.p10k.zsh https://raw.githubusercontent.com/cashewnuts/multipass-env/master/terminal/p10k.zsh"
+  - curl -fsL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=/home/ubuntu/.oh-my-zsh sh /dev/stdin
+  - sh -c "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /home/ubuntu/.oh-my-zsh/custom/themes/powerlevel10k"
+  - chown ubuntu:ubuntu -R /home/ubuntu
