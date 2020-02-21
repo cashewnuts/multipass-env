@@ -30,7 +30,3 @@ export LANG=en_US.UTF-8
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 export PATH=$PATH:/snap/bin
-
-alias k=kubectl
-
-source <(kubectl completion zsh)

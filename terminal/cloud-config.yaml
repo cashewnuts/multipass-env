@@ -22,8 +22,8 @@ packages:
 
 runcmd:
   - chsh ubuntu -s /bin/zsh
-  - sh -c "curl -o /home/ubuntu/.zshrc https://raw.githubusercontent.com/cashewnuts/multipass-env/master/terminal/zshrc"
-  - sh -c "curl -o /home/ubuntu/.p10k.zsh https://raw.githubusercontent.com/cashewnuts/multipass-env/master/terminal/p10k.zsh"
+  - sh -c "curl -o /home/ubuntu/.zshrc https://raw.githubusercontent.com/cashewnuts/multipass-env/master/zsh/zshrc"
+  - sh -c "curl -o /home/ubuntu/.p10k.zsh https://raw.githubusercontent.com/cashewnuts/multipass-env/master/zsh/p10k.zsh"
   - curl -fsL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=/home/ubuntu/.oh-my-zsh sh /dev/stdin
   - sh -c "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /home/ubuntu/.oh-my-zsh/custom/themes/powerlevel10k"
   - chown ubuntu:ubuntu -R /home/ubuntu
