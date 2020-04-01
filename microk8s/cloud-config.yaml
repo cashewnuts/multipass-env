@@ -18,6 +18,8 @@ packages:
   - git
   - ssh
   - neovim
+  - make
+  - docker-ce
 
 runcmd:
   - chsh ubuntu -s /bin/zsh
