@@ -19,7 +19,7 @@ packages:
   - ssh
   - neovim
   - make
-  - docker-ce
+  - docker.io
 
 runcmd:
   - chsh ubuntu -s /bin/zsh
